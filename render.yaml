@@ -1,14 +1,11 @@
 services:
   - type: web
     name: ppal-backend
-    env: python
+    env: docker
     region: ohio
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    rootDir: backend
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
       - key: GEMINI_API_KEY
         sync: false
       - key: CORS_ORIGINS
